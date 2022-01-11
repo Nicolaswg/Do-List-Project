@@ -4,7 +4,7 @@
   "description": "do list project",
   "private": true,
   "scripts": {
-    "start": "webpack"
+    "start": "webpack --config webpack.config.js"
   },
   "repository": {
     "type": "git",
