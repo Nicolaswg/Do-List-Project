@@ -2,9 +2,9 @@
   "name": "do-list-project",
   "version": "1.0.0",
   "description": "do list project",
-  "main": "index.js",
+  "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "webpack"
   },
   "repository": {
     "type": "git",
@@ -15,5 +15,10 @@
   "bugs": {
     "url": "https://github.com/Nicolaswg/Do-List-Project/issues"
   },
-  "homepage": "https://github.com/Nicolaswg/Do-List-Project#readme"
+  "homepage": "https://github.com/Nicolaswg/Do-List-Project#readme",
+  "devDependencies": {
+    "html-webpack-plugin": "^5.5.0",
+    "webpack": "^5.65.0",
+    "webpack-cli": "^4.9.1"
+  }
 }
