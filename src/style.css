@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --background-color: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
+  --background-listcolor: #fff;
+  --background-btncolor: #eeeded;
+  --border-color: #ece9e9;
+  --font-color: #868686;
+  --icon-color: #c9c8c8;
+  --font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background-color: rgb(212, 131, 131);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-family: var(--font-family);
+  background-image: var(--background-color);
+}
+
+.wrapp-list {
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--background-listcolor);
+  -webkit-box-shadow: 5px 5px 4px 0 rgba(146, 146, 146, 0.749);
+  box-shadow: 5px 5px 4px 0 rgba(146, 146, 146, 0.75);
+}
+
+.header {
+  padding: 12px;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.header p {
+  font-size: 1.1rem;
+  color: var(--font-color);
+}
+
+.fas.fa-sync {
+  color: var(--icon-color);
+  transition: transform 1s ease;
+  cursor: pointer;
+}
+
+.fas.fa-sync:active {
+  transform: translateY(-10px) rotate(720deg);
+}
+
+.inputfield input {
+  width: 100%;
+  padding: 12px;
+  font-family: var(--font-family);
+  color: var(--font-color);
+  border: none;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+}
+
+.task {
+  display: flex;
+  padding: 12px;
+  width: 100%;
+  border-bottom: 1px solid var(--border-color);
+  list-style: none;
+}
+
+.item-description {
+  display: flex;
+  flex-grow: 1;
+  gap: 5px;
+}
+
+.item-description p {
+  font-size: 0.9rem;
+  color: var(--font-color);
+  font-weight: 300;
+}
+
+.fas.fa-ellipsis-v {
+  color: var(--icon-color);
+  cursor: grab;
+}
+
+.clear {
+  width: 100%;
+  padding: 12px;
+  font-size: var(--font-family);
+  color: var(--font-color);
+  border-radius: 0;
+  text-align: center;
+  background-color: var(--background-btncolor);
+  text-decoration: none;
+  cursor: pointer;
+}
