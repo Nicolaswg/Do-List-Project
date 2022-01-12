@@ -1,6 +1,7 @@
 # Do-List-Project
 
-> In this project we use Webpack dependecy and dynamic dome manipulation with for displaying into the webpack server a Do List project.
+> In this project we use Webpack dependecy and dynamic dome manipulation
+for displaying into the webpack server a Do List project.
 
 ## Built with
 * HTML-CSS-JS
