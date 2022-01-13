@@ -13,6 +13,12 @@ function GetLocalTask() {
   return localTask;
 }
 
+const RemoveTask = (index) => {
+  const data = GetLocalTask();
+  const dataIndex = data.indexOf(data[index]);
+  data.splice(dataIndex, 1);
+};
+
 const DisplayTask = (container, data) => {
   if (data.length === 0) {
     container.innerHTML = 'no task added';
@@ -24,9 +30,16 @@ const DisplayTask = (container, data) => {
       <input type="checkbox" name="check" class="check">
       <p class="description">${data[i].description}</p>
       </div>
-      <i class="fas fa-trash" class="remove"></i>
+      <i class="fas fa-trash remove"></i>
   </li>`;
       container.innerHTML = newLiTag;
+      const removeBtn = document.querySelectorAll('i.remove');
+      removeBtn.forEach((e, index) => {
+        removeBtn[index].addEventListener('click', (e) => {
+          e.target.parentElement.remove();
+          RemoveTask(index);
+        });
+      });
       return data;
     });
   }
@@ -42,5 +55,5 @@ const AddTaskMethod = (input, data) => {
 };
 
 export {
-  GetLocalTask, DisplayTask, AddTaskMethod,
+  GetLocalTask, DisplayTask, AddTaskMethod, RemoveTask,
 };
