@@ -5,7 +5,7 @@ function StoreTask(task) {
 }
 
 function GetLocalTask() {
-  let localTask = JSON.parse(localStorage.getItem('task'));
+  let localTask = JSON.parse(localStorage.getItem('task-list'));
   if (!localTask) {
     localTask = [];
     return localTask;

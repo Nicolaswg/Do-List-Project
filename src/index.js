@@ -15,8 +15,15 @@ addTask.addEventListener('click', () => {
   inputBox.value = '';
 });
 
+inputBox.addEventListener('keypress', (e) => {
+  if (e.keyCode === 13) {
+    AddTaskMethod(inputBox, data);
+    DisplayTask(listContainer, data);
+    inputBox.value = '';
+  }
+});
+
 const newdata = JSON.parse(localStorage.getItem('task-list'));
 if (newdata !== null) {
-  AddTaskMethod(inputBox, newdata);
   DisplayTask(listContainer, newdata);
 }
