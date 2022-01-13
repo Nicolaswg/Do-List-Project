@@ -38,7 +38,6 @@ const AddTaskMethod = (input, data) => {
   if (description !== '') {
     data.push(newTask);
     StoreTask(JSON.stringify(data));
-    console.log(newTask);
   }
 };
 
