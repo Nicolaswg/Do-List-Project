@@ -13,6 +13,8 @@
   --border-color: #ece9e9;
   --font-color: #868686;
   --icon-color: #c9c8c8;
+  --icon-hover: #3949ab;
+  --icon-delete: #ef5350;
   --font-family: 'Poppins', sans-serif;
 }
 
@@ -31,6 +33,7 @@ body {
   width: 400px;
   display: flex;
   flex-direction: column;
+  gap: 2px;
   background-color: var(--background-listcolor);
   -webkit-box-shadow: 5px 5px 4px 0 rgba(146, 146, 146, 0.749);
   box-shadow: 5px 5px 4px 0 rgba(146, 146, 146, 0.75);
@@ -48,28 +51,39 @@ body {
   color: var(--font-color);
 }
 
-.fas.fa-sync {
+.fas.fa-plus {
   color: var(--icon-color);
-  transition: transform 1s ease;
+  transition: color 600ms ease;
   cursor: pointer;
 }
 
-.fas.fa-sync:active {
-  transform: translateY(-10px) rotate(720deg);
+.fas.fa-plus:hover {
+  color: var(--icon-hover);
+}
+
+.inputfield {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+  border-bottom: 1px solid var(--border-color);
 }
 
 .inputfield input {
-  width: 100%;
+  width: 90%;
   padding: 12px;
   font-family: var(--font-family);
   color: var(--font-color);
   border: none;
-  border-bottom: 1px solid var(--border-color);
 }
 
 .list {
   display: flex;
   flex-direction: column;
+  padding: 12px;
+  font-size: 1rem;
+  color: var(--font-color);
+  font-weight: 300;
 }
 
 .task {
@@ -78,6 +92,7 @@ body {
   width: 100%;
   border-bottom: 1px solid var(--border-color);
   list-style: none;
+  cursor: grab;
 }
 
 .item-description {
@@ -92,9 +107,14 @@ body {
   font-weight: 300;
 }
 
-.fas.fa-ellipsis-v {
+.fas.fa-trash {
   color: var(--icon-color);
-  cursor: grab;
+  transition: color 600ms ease;
+  cursor: pointer;
+}
+
+.fas.fa-trash:hover {
+  color: var(--icon-delete);
 }
 
 .clear {
@@ -107,4 +127,11 @@ body {
   background-color: var(--background-btncolor);
   text-decoration: none;
   cursor: pointer;
+  transition: background-color 600ms ease, color 600ms ease;
+}
+
+.clear:hover {
+  background-color: #868686;
+  opacity: 0.5;
+  color: #fff;
 }
