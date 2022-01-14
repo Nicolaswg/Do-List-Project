@@ -1,36 +1,29 @@
 import './style.css';
+import {
+  GetLocalTask, DisplayTask, AddTaskMethod,
+} from './modules/task-functions.js';
 
 const listContainer = document.getElementById('list');
+const addTask = document.getElementById('btn-add');
+const inputBox = document.getElementById('task');
 
-const CreatedTask = () => {
-  let newLiTag = '';
-  const arrTask = [{
-    description: 'Hacer ejercicio a las 6 Am',
-    completed: true,
-    index: 0,
-  },
-  {
-    description: 'Practicar JavaScript',
-    completed: true,
-    index: 1,
-  },
-  {
-    description: 'Comer me la torta jiji',
-    completed: true,
-    index: 2,
-  }];
+addTask.addEventListener('click', () => {
+  const data = GetLocalTask();
+  AddTaskMethod(inputBox, data);
+  DisplayTask(listContainer, data);
+  inputBox.value = '';
+});
 
-  arrTask.map((e, i) => {
-    newLiTag += `<li class="task">
-    <div class="item-description">
-    <input type="checkbox" name="check" id="check">
-    <p for="check">${arrTask[i].description}</p>
-    </div>
-    <i class="fas fa-ellipsis-v"></i>
-</li>`;
-    listContainer.innerHTML = newLiTag;
-    return arrTask;
-  });
-};
+inputBox.addEventListener('keypress', (e) => {
+  if (e.keyCode === 13) {
+    const data = GetLocalTask();
+    AddTaskMethod(inputBox, data);
+    DisplayTask(listContainer, data);
+    inputBox.value = '';
+  }
+});
 
-CreatedTask();
+const newdata = JSON.parse(localStorage.getItem('task-list'));
+if (newdata !== null) {
+  DisplayTask(listContainer, newdata);
+}
