@@ -17,6 +17,7 @@ const RemoveTask = (index, container) => {
   const data = GetLocalTask();
   const dataIndex = data.indexOf(data[index]);
   data.splice(dataIndex, 1);
+  data.forEach((d, index) => { d.index = index + 1; });
   StoreTask(JSON.stringify(data));
   if (data.length === 0) {
     container.innerHTML = 'no task added';
@@ -51,7 +52,6 @@ const DisplayTask = (container, data) => {
     const editBtn = document.querySelectorAll('i.edit');
     editBtn.forEach((e, index) => {
       editBtn[index].addEventListener('click', () => {
-        console.log('edit button');
       });
     });
   }
