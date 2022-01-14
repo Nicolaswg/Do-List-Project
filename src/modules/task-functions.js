@@ -33,6 +33,13 @@ const RemoveTask = (index, container) => {
   }
 };
 
+const ClearCompleted = () => {
+  const data = GetLocalTask();
+  const uncompleted = data.filter((e) => (!e.check));
+  data.forEach((d, index) => { d.index = index; });
+  StoreTask(JSON.stringify(uncompleted));
+};
+
 const EditTask = (data, index, e) => {
   const parent = e.target.parentElement.previousSibling;
   const description = parent.lastChild;
@@ -57,6 +64,7 @@ const CheckTask = (e, remove, edit, index) => {
     remove[index].classList.toggle('toggle');
     edit[index].classList.toggle('toggle');
     data[index].check = false;
+    StoreTask(JSON.stringify(data));
   }
 };
 
@@ -92,7 +100,6 @@ const DisplayTask = (container, data) => {
     });
   }
 };
-
 export {
-  GetLocalTask, DisplayTask, AddTaskMethod,
+  GetLocalTask, DisplayTask, AddTaskMethod, ClearCompleted,
 };
