@@ -7,9 +7,8 @@ const listContainer = document.getElementById('list');
 const addTask = document.getElementById('btn-add');
 const inputBox = document.getElementById('task');
 
-const data = GetLocalTask();
-
 addTask.addEventListener('click', () => {
+  const data = GetLocalTask();
   AddTaskMethod(inputBox, data);
   DisplayTask(listContainer, data);
   inputBox.value = '';
@@ -17,6 +16,7 @@ addTask.addEventListener('click', () => {
 
 inputBox.addEventListener('keypress', (e) => {
   if (e.keyCode === 13) {
+    const data = GetLocalTask();
     AddTaskMethod(inputBox, data);
     DisplayTask(listContainer, data);
     inputBox.value = '';

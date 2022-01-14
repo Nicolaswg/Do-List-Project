@@ -93,12 +93,13 @@ body {
   border-bottom: 1px solid var(--border-color);
   list-style: none;
   cursor: grab;
+  justify-content: space-between;
 }
 
 .item-description {
   display: flex;
-  flex-grow: 1;
   gap: 5px;
+  flex-grow: 5;
 }
 
 .item-description p {
@@ -107,7 +108,19 @@ body {
   font-weight: 300;
 }
 
+.list-icons {
+  display: flex;
+  justify-content: space-evenly;
+  flex-grow: 1;
+}
+
 .fas.fa-trash {
+  color: var(--icon-color);
+  transition: color 600ms ease;
+  cursor: pointer;
+}
+
+.fas.fa-pen {
   color: var(--icon-color);
   transition: color 600ms ease;
   cursor: pointer;
@@ -115,6 +128,10 @@ body {
 
 .fas.fa-trash:hover {
   color: var(--icon-delete);
+}
+
+.fas.fa-pen:hover {
+  color: var(--icon-hover);
 }
 
 .clear {
