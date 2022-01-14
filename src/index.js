@@ -1,7 +1,7 @@
 import './style.css';
 import {
   GetLocalTask, DisplayTask, AddTaskMethod,
-} from './task-functions.js';
+} from './modules/task-functions.js';
 
 const listContainer = document.getElementById('list');
 const addTask = document.getElementById('btn-add');
