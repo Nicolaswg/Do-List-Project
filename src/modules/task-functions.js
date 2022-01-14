@@ -44,7 +44,8 @@ const EditTask = (data, index, e) => {
   }
 };
 
-const CheckTask = (e, remove, edit, data, index) => {
+const CheckTask = (e, remove, edit, index) => {
+  const data = GetLocalTask();
   const parent = e.target.parentElement;
   const check = parent.firstChild;
   if (check.checked) {
@@ -56,7 +57,6 @@ const CheckTask = (e, remove, edit, data, index) => {
     remove[index].classList.toggle('toggle');
     edit[index].classList.toggle('toggle');
     data[index].check = false;
-    StoreTask(JSON.stringify(data));
   }
 };
 
@@ -87,7 +87,7 @@ const DisplayTask = (container, data) => {
     const checkBtn = document.querySelectorAll('.check');
     checkBtn.forEach((e, index) => {
       checkBtn[index].addEventListener('change', (e) => {
-        CheckTask(e, removeBtn, editBtn, data, index);
+        CheckTask(e, removeBtn, editBtn, index);
       });
     });
   }
