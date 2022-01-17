@@ -1,17 +1,16 @@
 import Task from './task.js';
 
-function StoreTask(task) {
-  return localStorage.setItem('task-list', task);
-}
+const StoreTask = (task) => {
+  localStorage.setItem('task-list', task);
+};
 
-function GetLocalTask() {
+const GetLocalTask = () => {
   let localTask = JSON.parse(localStorage.getItem('task-list'));
   if (!localTask) {
     localTask = [];
-    return localTask;
   }
   return localTask;
-}
+};
 
 const AddTaskMethod = (input, data) => {
   const description = input.value.toString();
