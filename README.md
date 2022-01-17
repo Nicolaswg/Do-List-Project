@@ -14,7 +14,7 @@ for displaying into the webpack server a Do List project.
 
 
 ## Live page
-- checkout the project page: [Do List]()
+- checkout the project page: [Do List](https://nicolaswg.github.io/Do-List-Project/)
 
 ## Authors
 
