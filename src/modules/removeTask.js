@@ -1,6 +1,7 @@
 import { GetLocalTask, StoreTask } from './localStorage.js';
 
-const RemoveTask = (index, container) => {
+const RemoveTask = (index, container, e) => {
+  e.target.parentElement.parentElement.remove();
   const data = GetLocalTask();
   const dataIndex = data.indexOf(data[index]);
   data.splice(dataIndex, 1);

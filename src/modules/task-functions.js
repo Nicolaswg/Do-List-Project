@@ -16,8 +16,7 @@ const DisplayTask = (container, data) => {
     removeBtn.forEach((e, index) => {
       removeBtn[index].classList.toggle('toggle');
       removeBtn[index].addEventListener('click', (e) => {
-        e.target.parentElement.parentElement.remove();
-        RemoveTask(index, container);
+        RemoveTask(index, container, e);
       });
     });
     const editBtn = document.querySelectorAll('i.edit');
