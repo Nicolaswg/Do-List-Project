@@ -1,6 +1,6 @@
 import './style.css';
 import AddTaskMethod from './modules/addTask.js';
-import { GetLocalTask } from './modules/localStorage.js';
+import { GetLocalTask, StoreTask } from './modules/localStorage.js';
 import DisplayTask from './modules/task-functions.js';
 import { ClearCompleted } from './modules/removeTask.js';
 
@@ -14,6 +14,7 @@ addTask.addEventListener('click', () => {
   AddTaskMethod(inputBox.value.toString(), data);
   DisplayTask(listContainer, data);
   inputBox.value = '';
+  StoreTask(JSON.stringify(data));
 });
 
 inputBox.addEventListener('keypress', (e) => {
@@ -21,6 +22,7 @@ inputBox.addEventListener('keypress', (e) => {
     const data = GetLocalTask();
     AddTaskMethod(inputBox.value.toString(), data);
     DisplayTask(listContainer, data);
+    StoreTask(JSON.stringify(data));
     inputBox.value = '';
   }
 });
