@@ -1,7 +1,8 @@
 import './style.css';
-import {
-  GetLocalTask, DisplayTask, AddTaskMethod, ClearCompleted,
-} from './modules/task-functions.js';
+import AddTaskMethod from './modules/addTask.js';
+import { GetLocalTask } from './modules/localStorage.js';
+import DisplayTask from './modules/task-functions.js';
+import { ClearCompleted } from './modules/removeTask.js';
 
 const listContainer = document.getElementById('list');
 const addTask = document.getElementById('btn-add');
@@ -10,7 +11,7 @@ const btnClear = document.querySelector('#btn-clear');
 
 addTask.addEventListener('click', () => {
   const data = GetLocalTask();
-  AddTaskMethod(inputBox, data);
+  AddTaskMethod(inputBox.value.toString(), data);
   DisplayTask(listContainer, data);
   inputBox.value = '';
 });
@@ -18,7 +19,7 @@ addTask.addEventListener('click', () => {
 inputBox.addEventListener('keypress', (e) => {
   if (e.keyCode === 13) {
     const data = GetLocalTask();
-    AddTaskMethod(inputBox, data);
+    AddTaskMethod(inputBox.value.toString(), data);
     DisplayTask(listContainer, data);
     inputBox.value = '';
   }

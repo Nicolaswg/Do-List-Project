@@ -1,4 +1,4 @@
-import { AddTaskMethod } from '../modules/task-functions.js';
+import AddTaskMethod from '../modules/addTask.js';
 
 describe('Add task testing', () => {
   test('Test if data is correctly added', () => {

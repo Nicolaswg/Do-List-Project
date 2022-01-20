@@ -1,71 +1,6 @@
-import Task from './task.js';
-
-const StoreTask = (task) => {
-  localStorage.setItem('task-list', task);
-};
-
-const GetLocalTask = () => {
-  let localTask = JSON.parse(localStorage.getItem('task-list'));
-  if (!localTask) {
-    localTask = [];
-  }
-  return localTask;
-};
-
-const AddTaskMethod = (input, data) => {
-  const description = input.value.toString();
-  const newTask = new Task(description, data.length);
-  if (description !== '') {
-    data.push(newTask);
-    StoreTask(JSON.stringify(data));
-  }
-};
-
-const RemoveTask = (index, container) => {
-  const data = GetLocalTask();
-  const dataIndex = data.indexOf(data[index]);
-  data.splice(dataIndex, 1);
-  data.forEach((d, index) => { d.index = index + 1; });
-  StoreTask(JSON.stringify(data));
-  if (data.length === 0) {
-    container.innerHTML = 'no task added';
-  }
-};
-
-const ClearCompleted = () => {
-  const data = GetLocalTask();
-  const uncompleted = data.filter((e) => (!e.check));
-  data.forEach((d, index) => { d.index = index; });
-  StoreTask(JSON.stringify(uncompleted));
-};
-
-const EditTask = (data, index, e) => {
-  const parent = e.target.parentElement.previousSibling;
-  const description = parent.lastChild;
-  const value = prompt('Edit selected task');
-  if (value !== null && value !== '') {
-    description.innerText = value;
-    data[index].description = value;
-    StoreTask(JSON.stringify(data));
-  }
-};
-
-const CheckTask = (e, remove, edit, index) => {
-  const data = GetLocalTask();
-  const parent = e.target.parentElement;
-  const check = parent.firstChild;
-  if (check.checked) {
-    remove[index].classList.toggle('toggle');
-    edit[index].classList.toggle('toggle');
-    data[index].check = true;
-    StoreTask(JSON.stringify(data));
-  } else {
-    remove[index].classList.toggle('toggle');
-    edit[index].classList.toggle('toggle');
-    data[index].check = false;
-    StoreTask(JSON.stringify(data));
-  }
-};
+import { RemoveTask } from './removeTask.js';
+import EditTask from './editTask.js';
+import CheckTask from './checkTask.js';
 
 const DisplayTask = (container, data) => {
   if (data.length === 0) {
@@ -99,6 +34,4 @@ const DisplayTask = (container, data) => {
     });
   }
 };
-export {
-  GetLocalTask, DisplayTask, AddTaskMethod, ClearCompleted,
-};
+export default DisplayTask;
