@@ -6,12 +6,17 @@ describe('Add task testing', () => {
   });
 
   test('Test if Localdata have description', () => {
-    const description = 'jesus';
+    const description = 'pedro';
     const taskarr = {
       index: 1,
       description,
       check: false,
     };
     expect(AddTaskMethod(description, [])).toContainEqual(taskarr);
+  });
+
+  test('Test if Localdata is empty', () => {
+    const description = '';
+    expect(AddTaskMethod(description, [])).toHaveLength(0);
   });
 });
